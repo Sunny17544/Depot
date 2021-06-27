@@ -1,13 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
+  title: Product1
+  description: Product1_Text
+  image_url: Product1.jpeg
+  price: 99999.9
 
 two:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
+  title: Product2
+  description: Product2_Text
+  image_url: Product2.gif
+  price: 10987.6
+
+three:
+  title: Product3
+  description: Product3_Text
+  image_url: Product3.png
+  price: 75987.6
+
+ruby:
+  title: Samsung A51
+  description: The Samsung Galaxy A51 is an Android smartphone manufactured by Samsung Electronics as part of its Galaxy A series. It was announced and released in December 2019. The phone has a Super AMOLED FHD+ 6.5 in display, a 48 MP wide, 12 MP ultrawide, 5 MP depth, and 5 MP macro camera, a 4000 mAh battery, and an optical in-screen fingerprint sensor.
+  price: 45555.0
+  image_url: Samsung A51.jpg
