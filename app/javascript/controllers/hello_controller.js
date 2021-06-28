@@ -9,24 +9,32 @@
 
 import { Controller } from "stimulus"
 
-export default class extends Controller {
-  static targets = [ "output", "detail", "cart" ]
-  static values = { url: String , count: Number}
+export default class extends Controller 
+{
+  static targets = [ "Description","Details", "Cart" ]
+  static values = {  count: Number, url: String  }
 
-  connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
-  }
-
-  greet()
+  connect() 
   {
-    // var nameStr=1;
-    // alert(nameStr)
-    // console.log("Sandeep Roy")
-    alert(this.detailTarget.textContent) 
+    //this.outputTarget.textContent = 'Hello, Stimulus!'
   }
 
-
-
+  Description()
+  {
+    console.log("Description Working")
+    // alert(nameStr)
+    console.log(this.application)
+    console.log(this.element)
+    var details=this.DetailsTargets;
+    var id1 = " ";
+    // var nameStr=1;
+    for (var id= 0, len= details.length; id<len; id++)
+    {
+      id1 += details[id].textContent;
+    }   
+    var id2=this.DescriptionTarget.textContent;
+    alert(id1+id2);
+  }
 
 
 CartAdd(event)
@@ -34,7 +42,7 @@ CartAdd(event)
   console.log("Working")
   const csrf = document.querySelector("[name='csrf-token']").getAttribute("content");
   var product_id= event.target.id;
-  const data={product_id: product_id , quantity: 1}
+  const data={product_id: product_id}
   var url=this.urlValue;
 
   fetch(url,
@@ -52,7 +60,7 @@ CartAdd(event)
     if (response.status == 200 ) 
     { 
       this.countValue=this.countValue+1 ; 
-      this.cartTarget.textContent=this.countValue;
+      this.CartTarget.textContent=this.countValue;
     } 
     else if(response.status == 404) 
     { 
