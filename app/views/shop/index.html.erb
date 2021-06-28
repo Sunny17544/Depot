@@ -3,6 +3,7 @@
     <aside id="notice"><%= notice %></aside>
 <% end %>
 <h1>Shop</h1>
+<br>
 <ul class="catalog">
     <% @products.each do |product| %>
         <li>
@@ -12,7 +13,7 @@
                 <%= sanitize(product.description) %>
             </p>
             <div class="price">
-                <%= product.price %>
+                <%= number_to_indian_currency(product.price) %>
             </div>
         </li>
     <% end %>
