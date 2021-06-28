@@ -1,5 +1,8 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+<br>
+<h2>Depot Line_items</h2><br>
 <p>
   <strong>Product:</strong>
   <%= @line_item.product_id %>

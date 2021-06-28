@@ -1,4 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+<br>
+<h2>Depot Cart</h2><br>
+<ul>
+    <% @cart.line_items.each do |item| %>
+        <li><%= item.product.title %></li><br>
+    <% end %>
+</ul>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+
+<%= link_to 'Edit', edit_cart_path(@cart), class: "btn btn-primary btn-sm" %> 
+<%= link_to 'Back', carts_path, class: "btn btn-secondary btn-sm" %>

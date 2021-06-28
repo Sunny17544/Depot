@@ -91,4 +91,17 @@ body
     {
         padding: 2.5em;
     }
+
+    .notice, #notice 
+{
+    background: #E6E6FA;
+    border-radius: 0.5em;
+    border: solid 0.177em #000003;
+    color: #3b3b8f;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 1em 1.414em;
+    text-align: center;
 }
+}
+
