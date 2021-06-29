@@ -41,6 +41,7 @@ class OrdersController < ApplicationController
         @cart.line_items.each do |line_item|
           @order.order_items.create!(name: line_item.product.title,quantity: line_item.quantity,price: line_item.product.price)
         end
+
         @total=(@order.order_items.sum { |x| x['quantity']*x['price'] } ) * 100 
         
         begin
@@ -49,16 +50,16 @@ class OrdersController < ApplicationController
           rescue Stripe::CardError => e
             return redirect_to edit_order_path(@order)
         end
+
         @order.payments.create!(chargeid: charge.id,status: charge.status,amount: (charge.amount)/100 )
+        
         if charge.status == "succeeded"
           session[:cart_id]=nil
           return redirect_to orders_path
         elsif charge.status == "failed"
           return redirect_to edit_order_path(@order)
-          
-        
-
         end
+        
         format.html { redirect_to @order, notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
@@ -71,12 +72,14 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
     @order=Order.find(params[:id])
+
     respond_to do |format|
       if @order.update(order_params)
         @order.order_items.destroy_all
         @cart.line_items.each do |line_item|
           @order.order_items.create!(name: line_item.product.title,quantity: line_item.quantity,price: line_item.product.price)
         end
+
         @total=(@order.order_items.sum { |x| x['quantity']*x['price'] } ) * 100 
         
         begin
@@ -85,13 +88,14 @@ class OrdersController < ApplicationController
           rescue Stripe::CardError => e
             return redirect_to edit_order_path(@order)
         end
+
         if charge.status == "succeeded"
           session[:cart_id]=nil
           return redirect_to orders_path
         elsif charge.status == "failed"
           return redirect_to edit_order_path(@order)
-
         end
+
         format.html { redirect_to @order, notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
