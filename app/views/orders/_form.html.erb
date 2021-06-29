@@ -28,10 +28,18 @@
 
   <div class="field">
     <%= form.label :pay_type %>
-    <%= form.number_field :pay_type %>
+    <%= form.select :pay_type, Order.pay_types.keys, prompt: 'Select a payment method'  %>
   </div>
 
-  <div class="actions">
+  <!--<div class="actions">
     <%= form.submit class: "btn btn-success btn-sm"%>
-  </div>
+  </div>-->
+
+  <script src="https://checkout.stripe.com/checkout.js" 
+    class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="product"
+    data-locale="auto">
+  </script>
+
 <% end %>

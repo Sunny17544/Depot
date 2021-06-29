@@ -19,6 +19,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+
+gem 'stripe-rails'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rexml'
@@ -32,6 +35,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+#Stripe is the easiest way to accept payments online. See https://stripe.com for details.
+gem 'stripe', '~> 1.57', '>= 1.57.1'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

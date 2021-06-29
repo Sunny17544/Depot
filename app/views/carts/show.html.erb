@@ -48,5 +48,6 @@
 <br>
 <%#= link_to 'Edit', edit_cart_path(@cart), class: "btn btn-primary btn-sm" %> 
 <%= link_to 'Back', carts_path, class: "btn btn-primary btn-sm" %><br><br>
-<%= button_to 'Empty cart', @cart, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Empty cart', @cart, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<%= link_to "Proceed to checkout", new_order_path, class: "btn btn-primary btn-sm" %><br>
 </div>

@@ -67,6 +67,10 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
+  # Stripe development kets access
+  config.stripe.secret_key = Rails.application.credentials.stripe[:development][:secret_key]
+  config.stripe.publishable_key = Rails.application.credentials.stripe[:development][:publishable_key]
+  
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
