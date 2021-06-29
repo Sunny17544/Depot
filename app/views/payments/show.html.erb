@@ -1,0 +1,22 @@
+<div class="container"  height= "300px" style=" width: 500px">
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+<p>
+  <h6><strong>Chargeid:</strong></h6>
+  <%= @payment.chargeid %>
+</p>
+
+<p>
+  <h6><strong>Status:</strong></h6>
+  <%= @payment.status %>
+</p>
+
+<p>
+  <h6><strong>Amount:</strong></h6>
+  <%= number_to_indian_currency(@payment.amount) %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>
+</div>

@@ -1,0 +1,22 @@
+<div class="container"  height= "300px" style=" width: 500px">
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+<p>
+  <h6><strong>Name:</strong></h6>
+  <%= @order_item.name %>
+</p>
+
+<p>
+  <h6><strong>Quantity:</strong></h6>
+  <%= @order_item.quantity %>
+</p>
+
+<p>
+  <h6><strong>Price:</strong></h6>
+  <%= number_to_indian_currency(@order_item.price) %>
+</p>
+
+<%= link_to 'Edit', edit_order_item_path(@order_item) %> |
+<%= link_to 'Back', order_items_path %>
+</div>

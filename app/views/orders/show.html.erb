@@ -1,0 +1,27 @@
+<div class="container"  height= "300px" style=" width: 500px">
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+<p>
+  <h6><strong>Name:</strong></h6>
+  <%= @order.name %>
+</p>
+
+<p>
+  <h6><strong>Address:</strong></h6>
+  <%= @order.address %>
+</p>
+
+<p>
+  <h6><strong>Email:</strong></h6>
+  <%= @order.email %>
+</p>
+
+<p>
+  <h6><strong>Pay type:</strong></h6>
+  <%= @order.pay_type %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+</div>
