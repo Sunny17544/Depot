@@ -11,7 +11,7 @@ class OrderMailer < ApplicationMailer
   #  mail to: "to@example.org"
   #end
 
-  def recieved(order)
+  def received(order)
     @order = order
 
     mail(to: @order.email, subject: "Order Confirmation")

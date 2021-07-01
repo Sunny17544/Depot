@@ -6,7 +6,11 @@
 </h3>
 
 <% @order.order_items.each do |order_item|%>
-  <p><%=order_item.quantity%> &times; <%=order_item.name%>-<span>&#8377;</span><%=number_to_currency(order_item.price * order_item.quantity,format:"%n")%> </p>
+
+  <p>
+    <%=order_item.quantity%> &times; <%=order_item.name%>-<span>&#8377;</span><%=number_to_currency(order_item.price * order_item.quantity,format:"%n")%> 
+  </p>
+
 <%end%>
 
-<h4>Total amount paid:-<span>&#8377;</span><%=number_to_indian_currency(@order.payments.last.amount,format: "%n")%> </h4>
+<h4>Total amount paid:-<span>&#8377;</span><%=number_to_currency(@order.payments.last.amount,format: "%n")%> </h4>
