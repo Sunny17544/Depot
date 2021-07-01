@@ -55,6 +55,7 @@ class OrdersController < ApplicationController
         
         if charge.status == "succeeded"
           session[:cart_id]=nil
+          OrderMailer.recieved(@order).deliver_later
           return redirect_to orders_path
         elsif charge.status == "failed"
           return redirect_to edit_order_path(@order)
@@ -91,6 +92,7 @@ class OrdersController < ApplicationController
 
         if charge.status == "succeeded"
           session[:cart_id]=nil
+          OrderMailer.recieved(@order).deliver_later
           return redirect_to orders_path
         elsif charge.status == "failed"
           return redirect_to edit_order_path(@order)

@@ -61,6 +61,14 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def decrease
+    #product=Product.find(params[:product_id])
+    #@line_item = @cart.remove_product(product)
+    #if @line_item.save
+      #redirect_to @line_item.cart
+    #end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
