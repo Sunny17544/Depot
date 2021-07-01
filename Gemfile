@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'stripe-rails'
 
+gem 'devise'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rexml'

@@ -2,7 +2,7 @@
 <h1>Order Summary</h1>
 
 <h3>
-  <%= @order.name %> Your order has been accepted
+  <%= @order.name %> Your order has been Received
 </h3>
 
 <% @order.order_items.each do |order_item|%>
@@ -13,4 +13,4 @@
 
 <%end%>
 
-<h4>Total amount paid:-<span>&#8377;</span><%=number_to_currency(@order.payments.last.amount,format: "%n")%> </h4>
+<h4>Total amount paid: <span>&#8377;</span><%=number_to_currency(@order.payments.last.amount,format: "%n")%> </h4>

@@ -35,7 +35,14 @@
       </ul>
       <form class="d-flex">
         <!--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-        <button class="btn btn-outline-warning" type="submit">Sign In</button>
+        <!--<button class="btn btn-outline-warning" type="submit">Sign In</button>-->
+        <% if user_signed_in? %>
+          <h5><%= link_to current_user.email, edit_user_registration_path, class: "btn btn-light" %></h5>
+          <li><%= link_to "Log Out", destroy_user_session_path, class: "btn btn-warning", method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-warning" %></li>
+          <li><%= link_to "Log In", new_user_session_path, class: "btn btn-warning" %></li>
+        <% end %>
       </form>
     </div>
   </div>
@@ -56,8 +63,10 @@
       </ul>
     </nav>
     -->
+    
     <section class="content">
       <main class='<%= controller.controller_name %>'>
+        <% if alert %><div class="alert alert-warning"><%= alert %></div><% end %>
         <%= yield %>
       </main>
     </section>

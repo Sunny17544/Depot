@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
+
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /products or /products.json
   def index
@@ -21,7 +23,7 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     respond_to do |format|
       if @product.save
