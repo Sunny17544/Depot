@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :products
   put "/line_items_dec", to: "line_items#decrease", as: "line_items_dec"
   
+  resources :support_requests, only: [ :index, :update ]
+
   root 'shop#index', as: 'shop_index'
   
 end
